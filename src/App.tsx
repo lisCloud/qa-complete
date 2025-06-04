@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { ScrollToPlugin } from 'gsap/ScrollToPlugin';
@@ -26,7 +26,7 @@ export default function App() {
     () => {
       let panels = gsap.utils.toArray('.panel'),
           scrollStarts = [0],
-          snapScroll = (value: number) => value;
+          snapScroll = (value: number, direction: number) => value;
       
       panels.forEach((panel, i) => {
         snapTriggers.current[i] = ScrollTrigger.create({
@@ -142,7 +142,7 @@ export default function App() {
                         justifyContent: 'flex-end',
                         cursor: 'pointer',
                       }}
-                      onClick={getNextNote}
+                      onClick={!isTyping ? getNextNote : undefined}
                     >
                       <p style={{ margin: 0, padding: '0 5px' }}><b>Next</b></p>
                       <div className='fwd' />
