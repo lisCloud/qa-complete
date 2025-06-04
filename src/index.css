@@ -1,0 +1,96 @@
+:root {
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html,
+body {
+  background-color: var(--dark);
+  color: var(--light);
+  margin: 0;
+  height: 100%;
+  -webkit-overflow-scrolling: touch;
+  overflow-scrolling: touch;
+}
+
+
+.panel {
+  height: 100vh;
+  position: sticky;
+  top: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.game-area {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10; /* above panels */
+  width: 500px; /* or your preferred width */
+  pointer-events: auto;
+}
+
+.pixel-character {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  width: 50%;
+}
+
+.box {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+.base {
+  background: #fff;
+  border: 4px solid #222;
+  border-radius: 8px;
+  box-shadow: 10px 4px 0 #222, 0 8px 0 #881919;
+  padding: 1rem;
+  font-family: 'Press Start 2P', 'Courier New', monospace;
+  font-size: 18px;
+  color: #222;
+  width: 400px;
+  filter: pixelate(2px);
+}
+
+.fwd {
+  width: 18px;
+  height: 18px;
+  background: #222;
+  clip-path: polygon(0 0, 100% 50%, 0 100%);
+  filter: pixelate(1px);
+  animation: blink 1.5s steps(1, end) infinite;
+}
+
+.author {
+  width: 100%;
+  text-align: start;
+  margin: 20px 0 0 0;
+}
+
+/* Animations */
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
