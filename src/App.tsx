@@ -26,7 +26,7 @@ export default function App() {
     () => {
       let panels = gsap.utils.toArray('.panel'),
           scrollStarts = [0],
-          snapScroll = (value: number, direction: number) => value;
+          snapScroll = (value: number, _direction: number) => value;
       
       panels.forEach((panel, i) => {
         snapTriggers.current[i] = ScrollTrigger.create({
